@@ -3,7 +3,9 @@ import React from 'react'
 function Overview(props) {
 	return (
 		<div>
-			{ props.name }
+			{props.tasks.map(task => (
+				<div id={ task.id }>{ task.name }</div>
+			))}
 		</div>
 	)
 }
