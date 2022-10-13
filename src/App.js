@@ -1,25 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import Overview from './components/Overview';
+import React, { useState } from 'react';
 
 function App() {
+	const [task, setTask] = useState()
+
+	const updateValue = e => {
+		setTask(e.target.value)
+
+	}
+
+	const handleClick = event => {
+		event.preventDefault();
+
+    console.log('handleClick 👉️', task);
+	}
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+		<div className='App'>
+			<div>
+				<label htmlFor='newTask' >New Task:</label>
+    		<input id='newTask' value={task} onChange={ updateValue } />
+				<button type="submit" id="newTask" onClick={ handleClick }>Submit</button>
+			</div>
+			<div>
+			</div>
+		</div>
+	);
 }
 
 export default App;
